@@ -1,0 +1,939 @@
+body {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 375px;
+    height: 550px;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 18px; /* Further reduced padding */
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 280px; /* Adjust based on your layout */
+}
+/* Search Bar Styles */
+.search-bar {
+    padding: 6px 16px; /* Further reduced top/bottom padding */
+    display: flex;
+    gap: 8px;
+    background-color: #ffffff;
+}
+
+.search-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transform: translate3d(0, 0, 0);
+    z-index: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    color: #666;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0);
+    z-index: 2;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 6px 6px 6px 30px; /* Reduced padding */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px; /* Reduced font size */
+    background-color: #f8f8f8;
+    position: relative;
+    z-index: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #0066cc;
+    background-color: #ffffff;
+}
+
+.tags-container {
+    display: flex;
+  flex-wrap: wrap;
+  max-height: 45px; /* Further reduced max-height */
+  gap: 8px; 
+    width: 100%;
+    padding: 4px 18px; /* Further reduced padding */
+    box-sizing: border-box;
+    border-bottom: 1px solid #e0e0e0;
+    background: #ffffff;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.tags-container.expanded {
+    max-height: none;
+}
+icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #666;
+    border-radius: 6px;
+}
+
+.icon-button:hover {
+    background-color: #f5f5f5;
+}
+.show-more-tags {
+    position: absolute;
+    right: 10px;
+    top: 77px; /* Further adjusted top position */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666666;
+    padding: 4px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.show-more-tags:hover {
+    background-color: #f0f0f0;
+    color: #333333;
+}
+
+.show-more-tags i {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+
+/* Tag Pill - Increased Horizontal Padding */
+.tag-pill {
+    padding: 4px 10px;
+padding-right: 24px; /* Adjusted right padding */
+border-radius: 20px; 
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+/* border: 1px solid #ddd; */ /* Commented out duplicate */
+font-size: 12px; /* Reduced font size */
+cursor: pointer;
+transition: all 0.2s ease;
+color: #444;
+}
+
+.tag-pill:not([style*="background"]) { /* For default tags without background color set */
+    color: #444; /* Ensure default tags also have darker text */
+}
+
+.tag-pill:hover {
+    background-color: #f0f0f0; /* Slightly darker hover background */
+    transform: translateY(-1px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08); /* Subtle shadow on hover */
+}
+
+.tag-pill.active {
+    opacity: 1;
+    transform: scale(1.02); /* Slightly less scale on active */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* More prominent shadow when active */
+    background-color: #ffffff; /* Make active pill white/lighter */
+    border-color: #ccc; /* Slightly darker border for active pill */
+}
+
+
+.tag-pill-wrapper {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.tag-pill {
+    padding: 6px 12px;
+    padding-right: 28px; /* Space for delete button */
+    border-radius: 16px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tag-delete-btn.standalone {
+    position: absolute;
+    right: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.2); /* Semi-transparent white */
+    color: inherit;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.tag-delete-btn.standalone:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1);
+}
+
+.tag-pill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.tag-pill:hover::after {
+    border-color: rgba(0,0,0,0.1);
+}
+
+.tag-pill.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Style for the tag text */
+.tag-text {
+    margin-right: 2px;
+}
+/* Questions List Styles */
+.questions-container {
+    position: relative; /* Added for pseudo-element positioning */
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin: 12px;
+    margin-top:2px;
+    margin-left:6px;
+    margin-right:2px ;
+    overflow: hidden;
+    position: relative;
+    padding-right: 8px; /* Add padding for scrollbar */
+}
+
+.questions-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), #ffffff);
+    pointer-events: none;
+    z-index: 1;
+    border-top-left-radius: 8px; /* Match container's border-radius */
+    border-top-right-radius: 8px; /* Match container's border-radius */
+}
+
+.questions-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+    pointer-events: none;
+    border-bottom-left-radius: 8px; /* Match container's border-radius */
+    border-bottom-right-radius: 8px; /* Match container's border-radius */
+}
+
+.questions-list {
+    height: 100%;
+    overflow-y: scroll;
+    padding: 8px;
+    padding-right: 6px; /* Extra padding to prevent hover interference */
+    margin-right: -12px; /* Compensate for extra padding */
+    scroll-behavior: smooth;
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: 6px;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+/* Custom scrollbar styling */
+.questions-list::-webkit-scrollbar {
+    width: 20px;
+}
+
+.questions-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.questions-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 2px solid transparent;
+}
+
+.question-item {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    padding-right:8px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.question-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.question-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Show 2 lines by default */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    transition: all 0.3s ease;
+}
+
+.question-item:hover .question-text {
+    -webkit-line-clamp: unset; /* Show all lines on hover */
+    line-clamp: unset;
+    max-height: none;
+}
+
+/* Meta information wrapper */
+.question-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    min-height: 28px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.question-item:hover .question-meta {
+    opacity: 1;
+}
+
+/* Tags container */
+.question-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Action buttons container */
+.question-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: 8px;
+    flex-shrink: 0;
+}
+/* Ensure buttons stay visible */
+.action-button {
+    opacity: 0.7;
+    visibility: visible;
+    flex-shrink: 0;
+    transition: opacity 0.3s ease;
+}
+
+.question-item:hover .action-button {
+    opacity: 1;
+}
+
+/* Animation for expansion */
+.question-item {
+    transform-origin: top;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.question-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.question-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #666;
+    white-space: nowrap;
+    padding: 2px 6px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    margin-right: 4px;
+}
+
+.question-tag .tag-delete-btn {
+    width: 12px;
+    height: 12px;
+    font-size: 10px;
+}
+
+.action-button {
+    padding: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    border-radius: 4px;
+}
+
+.action-button:hover {
+    background-color: #f0f0f0;
+}
+
+.no-questions {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Context Menu Styles */
+.context-menu {
+    position: fixed;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 4px 0;
+    min-width: 180px;
+    z-index: 1000;
+    user-select: none;
+    margin: 2px;
+}
+
+.context-menu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    z-index: -1;
+}
+
+.context-menu-item {
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.context-menu-item.dimmed {
+    opacity: 0.5;
+}
+
+/* Custom Tag Section Styles */
+.custom-tag-section {
+    padding: 8px;
+    border-top: 1px solid #eaeaea;
+    background-color: white;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.color-palette {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    justify-content: center;
+    padding: 2px;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.color-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.color-circle:hover {
+    transform: scale(1.1);
+}
+
+.color-circle.selected {
+    border-color: #333;
+    transform: scale(1.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.tag-input-label {
+    font-size: 11px;
+    color: #666;
+    margin-left: 2px;
+}
+
+.custom-tag-input {
+    width: 100%;
+    padding: 4px 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.custom-tag-input:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(0,102,204,0.1);
+}
+.warning-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.warning-content {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.warning-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.warning-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.warning-btn.replace {
+    background: #0066cc;
+    color: white;
+}
+
+.warning-btn.cancel {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.tag-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.tag-delete:hover {
+    background: rgba(0,0,0,0.2);
+}
+
+.tag-delete i {
+    font-size: 10px;
+}
+
+/* New styles for delete button */
+.tag-delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.1);
+    color: inherit;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.tag-delete-btn:hover {
+    background: rgba(0,0,0,0.2);
+    transform: scale(1.1);
+}
+
+/* Update existing tags section styles */
+.existing-tags-section {
+    padding: 12px;  /* Increased padding */
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;  /* Increased gap between items */
+}
+
+.existing-tag-button {
+    padding: 8px 12px;  /* Increased padding */
+    border: none;
+    border-radius: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    margin: 2px 0;  /* Added margin */
+}
+
+.existing-tag-button:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.create-custom-tag-button {
+    padding: 10px;  /* Increased padding */
+    margin-top: 8px;  /* Increased top margin */
+    border: 1px dashed #ddd;
+    border-radius: 4px;
+    background: none;
+    color: #666;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.create-custom-tag-button:hover {
+    background: #f5f5f5;
+    border-color: #999;
+    color: #333;
+}
+
+/* Add style for hidden menu items */
+.context-menu-item.hidden {
+    display: none;
+}
+
+/* Add styles for tags submenu */
+.tags-submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    min-width: 180px;
+    z-index: 1001;
+}
+
+.existing-tag-button {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    margin: 4px 0;
+}
+
+.create-custom-tag-button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px dashed #ddd;
+    border-radius: 4px;
+    background: none;
+    color: #666;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.create-custom-tag-button:hover {
+    background: #f5f5f5;
+    border-color: #999;
+    color: #333;
+}
+
+.tag-menu {
+    min-width: 200px;
+    max-width: 90%;
+    padding: 8px;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1000;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tag-menu .custom-tag-section {
+    border-top: none;
+    padding-top: 0;
+}
+
+.existing-tag-button {
+    width: auto;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    flex: 0 0 auto;
+}
+
+.existing-tag-button:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.existing-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 4px;
+}
+
+.back-button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 4px;
+    background: #f5f5f5;
+    color: #666;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.back-button:hover {
+    background: #eaeaea;
+    color: #333;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 1000;
+    transition: transform 0.3s ease-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+.notification.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Undo Bar Styles */
+.undo-bar {
+    background: #323232;
+    color: white;
+    padding: 12px 16px;
+    margin: 8px 0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.undo-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+}
+
+.undo-button {
+    background: none;
+    border: none;
+    color: #64B5F6;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.undo-button:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #64B5F6;
+    transition: width 3s linear;
+}
+
+/* Add these styles to your existing popup.css */
+.theme-button {
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 18px;
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    z-index: 1;
+}
+
+.theme-button:hover {
+    color: #666;
+}
+
+/* Optional: Add a transition for smooth theme switching */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Update favorite button styles */
+.favorite-button {
+    margin-right: 8px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none; /* Remove background */
+}
+
+.favorite-button i {
+    color: #c0c0c0; /* Lighter gray for inactive state */
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.favorite-button:hover {
+    background: none; /* Remove hover background */
+}
+
+.favorite-button:hover i {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+.favorite-button.active {
+    background: none; /* Remove active background */
+}
+
+.favorite-button.active i {
+    color: #ffd700; /* Golden color */
+    transform: scale(1.1);
+}
+
+/* Update favorites tag pill styling */
+.tag-pill[data-tag="favorites"] {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: rgba(255, 215, 0, 0.1); /* Subtle golden background */
+    border: 1px solid rgba(255, 215, 0, 0.3); /* Subtle golden border */
+}
+
+.tag-pill[data-tag="favorites"] i {
+    color: #ffd700;
+    transition: transform 0.2s ease;
+}
+
+.tag-pill[data-tag="favorites"]:hover {
+    background-color: rgba(255, 215, 0, 0.15);
+}
+
+.tag-pill[data-tag="favorites"].active {
+    background-color: rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.4);
+} 

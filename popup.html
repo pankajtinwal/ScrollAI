@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AI Chat Navigator</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="unsupported.css">
+    <link rel="stylesheet" href="dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="mainContainer" class="container">
+        <!-- Main content for supported sites -->
+        <header>
+            <h1 class="chat-title">Scroll AI</h1>
+            <button id="themeToggle" class="icon-button theme-button">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+        
+        <div class="search-bar">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search questions...">
+            </div>
+        </div>
+
+        <div class="tags-container">
+            <button style="padding-right:12px" class="tag-pill active" data-tag="all">All</button>
+        </div>
+        
+        
+
+        <div class="questions-container">
+            <div class="questions-list" id="questionsList">
+                <!-- Questions will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Separate container for unsupported sites -->
+    <div id="unsupportedContainer" class="unsupported-container" style="display: none;">
+        <h1 class="unsupported-title">Choose Your AI Companion</h1>
+        <div class="companions-grid">
+            <a href="https://chatgpt.com" class="companion-card" target="_blank">
+                <img src="icons/chatgpt.png" alt="ChatGPT" class="companion-icon">
+                <h3 class="companion-name">ChatGPT</h3>
+                <p class="companion-description">OpenAI's ChatGPT</p>
+            </a>
+            <a href="https://chat.deepseek.com" class="companion-card" target="_blank">
+                <img src="icons/deepseek.png" alt="Deepseek" class="companion-icon">
+                <h3 class="companion-name">Deepseek</h3>
+                <p class="companion-description">Deepseek Chat</p>
+            </a>
+        </div>
+        
+        <!-- Add this new div for the coffee button -->
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html> 

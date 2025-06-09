@@ -1,0 +1,480 @@
+/* Base dark theme styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .container {
+    background-color: #121212;
+}
+
+/* Header styles */
+.dark-mode header {
+    background-color: #1E1E1E;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .chat-title {
+    color: #ffffff;
+}
+
+.dark-mode .theme-button {
+    color: #7C7C7C;
+}
+
+.dark-mode .theme-button:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Search bar styles */
+.dark-mode .search-bar {
+    background-color: #1E1E1E;
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .search-container {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .search-container:focus-within {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .search-icon {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.dark-mode #searchInput {
+    background-color: transparent;
+    color: #ffffff;
+    caret-color: #007bff;
+}
+
+.dark-mode #searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Tags styles */
+.dark-mode .tags-container {
+    background-color: #1E1E1E;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .tag-pill {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.dark-mode .tag-pill:not([style*="background"]) {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode .tag-pill:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.dark-mode .tag-pill.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .tag-pill[data-tag="favorites"] {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode .tag-pill[data-tag="favorites"] i {
+    color: #ffd700;
+}
+
+.dark-mode .tag-pill[data-tag="favorites"]:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark-mode .tag-pill[data-tag="favorites"].active {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Questions container styles */
+.dark-mode .questions-container {
+    background-color: #121212;
+}
+
+.dark-mode .questions-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to top, rgba(18, 18, 18, 0), #121212);
+    pointer-events: none;
+    z-index: 1;
+    border-top-left-radius: 8px; /* Match container's border-radius */
+    border-top-right-radius: 8px; /* Match container's border-radius */
+}
+
+.dark-mode .questions-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(18, 18, 18, 0), #121212);
+    pointer-events: none;
+    border-bottom-left-radius: 8px; /* Match container's border-radius */
+    border-bottom-right-radius: 8px; /* Match container's border-radius */
+}
+
+.dark-mode .question-item {
+    background-color: #1E1E1E;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.dark-mode .question-item:hover {
+    background-color: #252525;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .question-text {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode .action-button {
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.dark-mode .action-button:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.dark-mode .question-item:hover .action-button {
+    opacity: 1;
+}
+
+/* Context menu styles */
+.dark-mode .context-menu {
+    background-color: #252525;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.dark-mode .context-menu-item {
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease;
+}
+
+.dark-mode .context-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Tag menu styles */
+.dark-mode .tag-menu {
+    background-color: #1E1E1E;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .back-button {
+    background-color: #252525;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .back-button:hover {
+    background-color: #333333;
+}
+
+/* Tag input styles */
+.dark-mode .tag-menu input[type="text"] {
+    background-color: #252525;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.dark-mode .tag-menu input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    background-color: #2d2d2d;
+}
+
+.dark-mode .tag-menu input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Color picker styles */
+.dark-mode .color-picker {
+    background-color: #252525;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+}
+
+.dark-mode .color-option {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.dark-mode .color-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .color-option.selected {
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Tag menu header */
+.dark-mode .tag-menu-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Tag creation form */
+.dark-mode .tag-creation-form {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Tag preview */
+.dark-mode .tag-preview {
+    background-color: #2d2d2d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+/* Error message */
+.dark-mode .error-message {
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Create button */
+.dark-mode .create-tag-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dark-mode .create-tag-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.dark-mode .create-tag-button:disabled {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dark-mode .tag-menu {
+    animation: slideIn 0.2s ease;
+}
+
+/* Unsupported page styles */
+.dark-mode .unsupported-container {
+    background-color: #121212;
+}
+
+.dark-mode .unsupported-title {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .companion-card {
+    background-color: #1E1E1E;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.dark-mode .companion-card:hover {
+    background-color: #252525;
+    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .companion-name {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode .companion-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Notification styles */
+.dark-mode .notification {
+    background-color: #252525;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Scrollbar styles */
+.dark-mode ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+    background: #1E1E1E;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 4px;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #404040;
+}
+
+/* Selection styles */
+.dark-mode ::selection {
+    background-color: rgba(0, 123, 255, 0.3);
+    color: #ffffff;
+}
+
+/* Input and textarea styles */
+.dark-mode input,
+.dark-mode textarea {
+    background-color: #252525;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* Update question item styles for dark mode */
+.dark-mode .question-item.editing {
+    background-color: #1E1E1E;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .question-item.editing .question-meta {
+    opacity: 1;
+}
+
+.dark-mode .editable-input {
+    background-color: #252525;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .question-meta {
+    opacity: 0.7;
+}
+
+.dark-mode .question-item:hover .question-meta,
+.dark-mode .question-item.editing .question-meta {
+    opacity: 1;
+}
+
+/* --- Dark Mode Warning Popup Overrides --- */
+.dark-mode .warning-popup .warning-content {
+    background-color: #1E1E1E;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .warning-popup .warning-btn {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.dark-mode .warning-popup .warning-btn.replace {
+    background-color: #007bff;
+}
+
+.dark-mode .warning-popup .warning-btn.cancel {
+    background-color: #555555;
+    color: #ffffff;
+}
+
+/* Dark Mode Overrides for Custom Tag Section */
+.dark-mode .custom-tag-section {
+    background-color: #1E1E1E;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .color-palette {
+    background-color: transparent; /* Or adjust as needed */
+}
+
+.dark-mode .custom-tag-input {
+    background-color: #252525;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.dark-mode .custom-tag-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Add this to your existing dark mode styles */
+.dark-mode .favorite-button i {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.dark-mode .favorite-button.active i {
+    color: #ffc107;
+}
+
+.dark-mode .favorite-button:hover i {
+    color: #ffc107;
+}
+    

@@ -1,0 +1,140 @@
+.unsupported-container {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    text-align: center;
+    background: #ffffff;
+    height: 550px;
+    width: 375px;
+    box-sizing: border-box;
+}
+
+.unsupported-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 32px;
+}
+
+.companions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 320px;
+}
+
+.companion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.companion-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: #007bff;
+}
+
+.companion-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+}
+
+.companion-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+.companion-description {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.unsupported-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    color: #6c757d;
+}
+
+.unsupported-message {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.supported-sites {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.supported-sites-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 12px;
+}
+
+.site-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.site-item:hover {
+    background-color: #f1f3f5;
+}
+
+.site-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+.site-name {
+    font-size: 14px;
+    color: #495057;
+}
+
+.visit-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 16px;
+}
+
+.visit-button:hover {
+    background-color: #0056b3;
+}
